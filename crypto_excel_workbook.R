@@ -12,19 +12,8 @@ library(timetk)
 
 # 2.0 GET DATA ----
 
-#stock_data_tbl <- c("AAPL", "GOOG", "NFLX", "NVDA") %>%
-    #tq_get(from = "2010-01-01", to = "2019-12-31")
-
 crypto_data_tbl <- c("BTC-USD", "ETH-USD", "DOGE-USD", "LTC-USD") %>%
     tq_get(from = "2010-01-01", to = "2021-11-14")
-
-# stock_pivot_table <- stock_data_tbl %>%
-#     pivot_table(
-#         .rows    = ~ YEAR(date),
-#         .columns = ~ symbol,
-#         .values  = ~ PCT_CHANGE_FIRSTLAST(adjusted)
-#     ) %>%
-#     rename(year = 1)
 
 crypto_pivot_table <- crypto_data_tbl %>%
     pivot_table(
@@ -33,10 +22,6 @@ crypto_pivot_table <- crypto_data_tbl %>%
         .values = ~ PCT_CHANGE_FIRSTLAST(adjusted)
     ) %>%
     rename(year = 1)
-
-# stock_plot <- stock_data_tbl %>%
-#     group_by(symbol) %>%
-#     plot_time_series(date, adjusted, .color_var = symbol, .facet_ncol = 2, .interactive = FALSE)
 
 crypto_plot <- crypto_data_tbl %>%
     group_by(symbol) %>%
