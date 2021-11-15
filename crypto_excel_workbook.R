@@ -50,4 +50,4 @@ writeDataTable(wb, sheet = "crypto_analysis", x = crypto_pivot_table)
 saveWorkbook(wb, "R_T_E/crypto_analysis.xlsx", overwrite = FALSE)
 
 # * Open the Workbook ----
-openXL("R_T_E/crypto_analysis.xlsx") 
+openXL("R_T_E/crypto_analysis.xlsx")
